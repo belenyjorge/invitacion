@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web para Móviles</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: "Tangerine", cursive;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            transition: background-color 0.5s ease; /* Transición de fondo */
+        }
+
+        /* Portada */
+        .portada {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('../images/background-mv.jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .portada::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Oscurece la imagen de fondo */
+        }
+
+        .portada h1, .portada p {
+            font-family: "Mea Culpa", cursive;
+            position: relative;
+            color: #f5faff;
+            z-index: 2;
+            margin: 10px;
+        }
+
+        .portada h1 {
+            font-size: 3.5em;
+        }
+
+        .portada p {
+            font-size: 2em;
+            max-width: 90%;
+        }
+
+        /* Sección de contenido */
+        .contenido {
+            padding: 10px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease, background-color 0.5s ease; /* Transiciones de fondo y opacidad */
+        }
+
+
+        .contenido:nth-child(even) {
+            background-color: #f5faff;
+        }
+
+        .contenido:nth-child(odd) {
+            background-color: #eaf6ff;
+        }
+
+        .contenido h2 {
+            font-size: 3em;
+            margin-bottom: 2px;
+        }
+
+        .contenido h1 {
+            font-size: 3.5em;
+            color: #444;
+            margin: 5px 0 5px;
+        }
+
+        .contenido p {
+            font-size: 2em;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .iban p {
+            font-family:Arial, Helvetica, sans-serif;
+            font-size: 1em;
+        }
+
+        .contenido img {
+            width: 90%; /* Se ajusta al 90% de la pantalla */
+            max-width: 400px;
+            height: auto;
+            margin-bottom: 10px;
+            margin-left: 5px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon img {
+            width: 50%; /* Se ajusta al 90% de la pantalla */
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+            margin-left: 5px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
+        }
+
+        .contenido iframe {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            border: none;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .formulario {
+            max-width: 100%;
+        }
+
+        /* Formulario */
+        .formulario iframe {
+            display: flex;
+            flex-direction:row;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            max-width: 750px;
+            height: 1200px;
+            border: none;
+        }
+
+        .formulario.canciones iframe {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            border: none;
+            /*margin: 20px 0;*/
+        }
+        /* Estilos para el footer */
+        footer {
+            background-color: #424242;
+            color: #fff;
+            padding: 10px 0;
+            font-size: 2em;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10%;
+            width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center; /* Centra el contenido (texto y los iconos) */
+            align-items: center;
+            width: 90%; /* O cualquier tamaño que prefieras */
+            position: relative; /* Para usar la posición absoluta de los iconos */
+        }
+
+        .texto-footer {
+            display: inline-block;
+            text-align: center;
+            margin: 0 20px; /* Espacio entre los iconos y el texto */
+        }
+
+        .footer-content img {
+            width: 30px; /* Ajusta el tamaño de los iconos */
+            height: auto;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%); /* Alinea verticalmente los iconos */
+        }
+
+        .icono-izquierda {
+            left: 0; /* Posiciona el icono izquierdo en la parte izquierda */
+        }
+
+        .icono-izquierda:nth-child(2) {
+            left: 30px; /* Posiciona el icono izquierdo en la parte izquierda */
+        }
+
+        .icono-derecha {
+            right: 0; /* Posiciona los iconos derechos en la parte derecha */
+        }
+
+
+    </style>
+</head>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Mea+Culpa&family=Rouge+Script&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+
+<body>
+    <!-- Portada -->
+    <div class="portada">
+        <h1>Belén y Jorge</h1>
+        <p>22 de Marzo de 2025</p>
+    </div>
+
+    <!-- Contenido -->
+    <div class="contenido ceremonia">
+        <h2>Ceremonia</h2>
+        <div class="icon">
+            <img src = "../images/church.png">
+        </div>
+        <h1>11:30 am</h1>
+        <p>Iglesia Parroquial de Santa Bárbara</p>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.2913332552075!2d-3.6964039231423325!3d40.424547455162205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42288f95655267%3A0xbb82de5446917799!2sIglesia%20Parroquial%20de%20Santa%20B%C3%A1rbara!5e0!3m2!1ses!2ses!4v1734193673591!5m2!1ses!2ses">
+        </iframe>
+    </div>
+
+    <div class="contenido celebracion">
+        <h2>Celebración</h2>
+        <div class="icon">
+            <img src="../images/cheers-removebg-preview.png">
+        </div>
+        <p>Finca Guadalajara Green</p>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d678.165903756253!2d-3.1960100941059135!3d40.622941152310474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd43ac8d06ed4c77%3A0xce1493c6bc9a3fbe!2sFINCA%20GUADALAJARA%20GREEN!5e0!3m2!1ses!2ses!4v1734193822443!5m2!1ses!2ses">
+        </iframe>
+        
+    </div>
+
+    <div class="contenido">
+        <h2>Confirma asistencia</h2>
+        <div class = "icon">
+            <img src = "../images/mail.png">
+        </div>
+        <p>Confirma tu asistencia, cuéntanos si tienes alguna restricción alimentaria y si contamos contigo para el autobús.</p>
+    </div>
+    <div class="formulario">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScvXqBjDdSNb8NpqrOgmncW_zca91T5sLKDsHDmi9Bpc6EUEQ/viewform?embedded=true" width="800" height="1022" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+    </div>
+
+    <div class="contenido">
+        <h1></h1>
+        <img src="../images/img2.jpeg" alt="Imagen 1">
+        <p>El mejor regalo que nos podéis dar es vuestra presencia, pero si aún con todo nos queréis hacernos un regalo, 
+            nos podéis ayudar a disfrutar de nuestra luna de miel en Japón.
+        </p>
+        <div class = "icon">
+            <img src = "../images/world-removebg-preview.png">
+        </div>
+        <div class="iban">
+            <p>ES96 0182 5322 2800 0045 8386</p>
+        </div>
+    </div>
+    <div class="contenido">
+        <h2>¡Sugeridnos alguna canción con la que lo vayáis a darlo todo!</h2>
+        <div class="icon">
+            <img src="../images/dancing-removebg-preview.png">
+        </div>
+    </div>
+    <div class="formulario canciones">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSem4pMUllrQTIFurgpAZ3cvUn9rfJWnP1MOWfG7QuL3mAUNLQ/viewform?embedded=true" width="800" height="375" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="../images/party-removebg-preview.png" class="icono-derecha">
+            ¡Os Esperamos!
+            <img src="../images/knife-removebg-preview.png", class="icono-izquierda">
+            <img src="../images/smile-face-removebg-preview.png" class="icono-izquierda">
+        </div>
+    </footer>
+
+    <script>
+        const opciones = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 // 10% de la sección visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                }
+            });
+        }, opciones);
+
+        // Observar todas las secciones con clase 'contenido'
+        document.querySelectorAll('.contenido').forEach(seccion => {
+            observer.observe(seccion);
+        });
+    </script>
+</body>
+</html>
+
