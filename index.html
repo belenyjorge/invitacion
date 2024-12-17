@@ -37,7 +37,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Oscurece la imagen de fondo */
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .portada h1, .portada p {
@@ -204,7 +204,98 @@
             right: 0;
         }
 
-    </style>
+        /* Media query para pantallas grandes (ordenadores) */
+        @media (min-width: 768px) {
+            .portada {
+                background-image: url('images/background.jpeg')
+            }
+
+            .portada h1 {
+                font-size: 6em;
+            }
+
+            .portada p {
+                font-size: 3.5em;
+                max-width: 90%;
+            }
+            /* Agrupar las secciones ceremonia y celebracion en una fila */
+            .contenidos-agrupados {
+                display: flex;
+                justify-content: space-between;
+                gap: 0px;
+            }
+
+            .contenido:nth-child(1) {
+                background-color: #f5faff;
+            }
+
+            /* Ajustar las secciones internas */
+            .contenido.ceremonia,
+            .contenido.celebracion {
+                width: 20%; /* Cada sección ocupa el 48% del espacio */
+            }
+
+            .contenido.celebracion p {
+                padding: 70px 0px 0px 0px;
+            }
+
+            .contenido {
+                padding: 100px 100px;
+           }
+
+            .contenido h2 {
+                 font-size: 3.5em;
+            }
+
+            .contenido h1 {
+                font-size: 4em; /* Reducir tamaño de los títulos */
+            }
+
+            .contenido p {
+                font-size: 3em;
+             }
+
+            .icon img {
+                width: auto;
+                max-width: 100px;
+                max-height: 100px;
+                height: auto;
+            }
+
+            .maps iframe {
+                max-width: 250px;
+                height: 250px;
+            }
+
+            .iban p {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 1.5em;
+            }
+
+            footer {
+                font-size: 3em;
+            }
+
+            .footer-content img {
+                width: 50px;
+            }
+
+            .icono-izquierda:nth-child(2) {
+                left: 50px;
+            }
+
+            .contenido img {
+                width: 70%;
+                max-width: 300px;
+            }
+
+            .contenido.ceremonia,
+            .contenido.celebracion {
+                width: 45%; /* Reducir el ancho de las secciones agrupadas */
+            }
+        }
+    }
+</style>
 </head>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -219,26 +310,27 @@
     </div>
 
     <!-- Contenido -->
-    <div class="contenido ceremonia">
-        <h2>Ceremonia</h2>
-        <div class="icon">
-            <img src="images/church.png" alt="Icono de iglesia">
+    <div class = "contenidos-agrupados">
+        <div class="contenido ceremonia">
+            <h2>Ceremonia</h2>
+            <div class="icon">
+                <img src="images/church.png" alt="Icono de iglesia">
+            </div>
+            <h1>11:30 am</h1>
+            <p>Iglesia Parroquial de Santa Bárbara</p>
+            <div class="maps">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.2913332552075!2d-3.6964039231423325!3d40.424547455162205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42288f95655267%3A0xbb82de5446917799!2sIglesia%20Parroquial%20de%20Santa%20B%C3%A1rbara!5e0!3m2!1ses!2ses!4v1734193673591!5m2!1ses!2ses"></iframe>
+            </div>
         </div>
-        <h1>11:30 am</h1>
-        <p>Iglesia Parroquial de Santa Bárbara</p>
-        <div class="maps">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.2913332552075!2d-3.6964039231423325!3d40.424547455162205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42288f95655267%3A0xbb82de5446917799!2sIglesia%20Parroquial%20de%20Santa%20B%C3%A1rbara!5e0!3m2!1ses!2ses!4v1734193673591!5m2!1ses!2ses"></iframe>
-        </div>
-    </div>
-
-    <div class="contenido celebracion">
-        <h2>Celebración</h2>
-        <div class="icon">
-            <img src="images/cheers-removebg-preview.png" alt="Icono de celebración">
-        </div>
-        <p>Finca Guadalajara Green</p>
-        <div class="maps">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d678.165903756253!2d-3.1960100941059135!3d40.622941152310474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd43ac8d06ed4c77%3A0xce1493c6bc9a3fbe!2sFINCA%20GUADALAJARA%20GREEN!5e0!3m2!1ses!2ses!4v1734193822443!5m2!1ses!2ses"></iframe>
+        <div class="contenido celebracion">
+            <h2>Celebración</h2>
+            <div class="icon">
+                <img src="images/cheers-removebg-preview.png" alt="Icono de celebración">
+            </div>
+            <p>Finca Guadalajara Green</p>
+            <div class="maps">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d678.165903756253!2d-3.1960100941059135!3d40.622941152310474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd43ac8d06ed4c77%3A0xce1493c6bc9a3fbe!2sFINCA%20GUADALAJARA%20GREEN!5e0!3m2!1ses!2ses!4v1734193822443!5m2!1ses!2ses"></iframe>
+            </div>
         </div>
     </div>
 
